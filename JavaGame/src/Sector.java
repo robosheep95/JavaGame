@@ -4,6 +4,7 @@ public class Sector {
 	private String strGalaxy;
 	private int intTroops;
 	private boolean boolNeutral;
+	private Player player;
 	
 	public void setName(String input){
 		strName = input;
@@ -29,6 +30,9 @@ public class Sector {
 	public void setNeutral(boolean input){
 		boolNeutral = input;
 	}
+	public void setPlayer(Player input){
+		player = input;
+	}
 	public String getName(){
 		return strName;
 	}
@@ -40,6 +44,9 @@ public class Sector {
 	}
 	public boolean isNeutral(){
 		return boolNeutral;
+	}
+	public Player getPlayer(){
+		return player;
 	}
 	public String toString(){
 		if (boolNeutral){
