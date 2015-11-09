@@ -1,0 +1,32 @@
+import javax.swing.JOptionPane;
+
+public class JavaGameMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Start by setting up board with txt input using board init
+		//Prompt for number of players 2-5
+		Object[] possabllities = {"2","3","4","5"};
+		boolean notStarted = true;
+		while(notStarted){
+			String sAttackTroops = (String)JOptionPane.showInputDialog(null, "Select Number of Players", "Players", JOptionPane.PLAIN_MESSAGE, null, possabllities, "2");
+			if (sAttackTroops == "null"){
+				QuitPrompt();
+			}
+			else{
+				
+			}
+			
+		}
+		
+	}
+
+	public static void QuitPrompt(){
+		final JOptionPane optionPane = new JOptionPane(
+			    "Would you like to quit?",
+			    JOptionPane.WARNING_MESSAGE,
+			    JOptionPane.YES_NO_OPTION);
+		optionPane.createDialog(null, "Quit?")
+		
+	}
+}

@@ -1,0 +1,19 @@
+import javax.swing.JOptionPane;
+
+public class JavaGameMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//Start by setting up board with txt input using board init
+		//Prompt for number of players 2-5
+		String sAttackTroops = (String)JOptionPane.showInputDialog(null, "Select Number of Players", "Attack", JOptionPane.PLAIN_MESSAGE, null, possibilities, "1");
+		if (sAttackTroops == "null"){
+			return;
+		}
+		else{
+		
+		
+		Method.Battle();
+	}
+
+}

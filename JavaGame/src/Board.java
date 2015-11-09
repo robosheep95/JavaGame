@@ -1,5 +1,4 @@
 
 public class Board {
-	//Initialize array
-	//use txt file to import sector data and add sectors to an array.
+	//Use this space to initialize all sectors 
 }

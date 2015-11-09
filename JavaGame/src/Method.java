@@ -1,3 +1,7 @@
+/*
+ * Battle and Battle Execute method by Taylor Scafe. Ignore warnings. It works
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Method {
 	
-	public static void BattleSetUp(){//Will take 2 sectors
+	public static void Battle(){//Will take 2 sectors
 		Sector attack = new Sector();//Temporary, Will take sector as input
 		Sector defend = new Sector();
 		attack.setTroops(5);
@@ -21,19 +25,20 @@ public class Method {
 		}
 		Object[] possibilities = troopOptions;
 		String sAttackTroops = (String)JOptionPane.showInputDialog(null, "Select Number of Troops to Deploy", "Attack", JOptionPane.PLAIN_MESSAGE, null, possibilities, "1");
-		if (sAttackTroops == "null"){
+		if (sAttackTroops == null){
 			return;
 		}
 		else{
 			attackTroops = Integer.parseInt(sAttackTroops);
 			defendTroops = defend.getTroops();
-			System.out.println(attackTroops);
-			Method.battle(attackTroops, defendTroops, attack, defend);
+			//System.out.println(attackTroops);
+			Method.BattleExecute(attackTroops, defendTroops, attack, defend);
 		}
 		
 	}
 	
-	public static void battle(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
+	@SuppressWarnings("unchecked")
+	private static void BattleExecute(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
 		//Sector attack = new Sector();//Temporary, Will take sector as input
 		//Sector defend = new Sector();
 		Random die = new Random();
@@ -83,7 +88,7 @@ public class Method {
 		}
 	
 	}
-	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the internet. Give append to an Object[]
+	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append to an Object[]
 
 		ArrayList<Object> temp = new ArrayList<Object>(Arrays.asList(obj));
 		temp.add(newObj);
