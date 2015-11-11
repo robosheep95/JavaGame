@@ -5,7 +5,6 @@ public class Sector {
 	private int intTroops;
 	private boolean boolNeutral;
 	private Player player;
-	//private ArrayList
 	
 	public void setName(String input){
 		strName = input;
