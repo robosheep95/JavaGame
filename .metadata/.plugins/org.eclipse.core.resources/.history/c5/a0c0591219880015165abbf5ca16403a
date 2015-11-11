@@ -56,7 +56,6 @@ public class Method {
 			int defendDie = (int) defendDice.get(defendTroops-i-1);
 			if(attackDie <= defendDie){
 				System.out.println("Defender "+ (i+1) + " was Sucessful");
-				moveTroops --;
 				attack.subTroop();
 			}
 			else{
@@ -81,20 +80,4 @@ public class Method {
 		temp.add(newObj);
 		return temp.toArray();
 	}
-	
-	public void MoveTroops(Player player){
-		Object[] MoveFromOptions = {};
-		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
-
-		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
-	}
-	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
-	
-	
 }

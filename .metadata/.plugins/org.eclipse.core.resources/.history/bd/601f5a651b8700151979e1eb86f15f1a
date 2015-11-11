@@ -11,7 +11,9 @@ import javax.swing.JOptionPane;
 
 public class Method {
 	
-	public static void Battle(Sector attack, Sector defend){//Will take 2 sectors
+	public static void Battle(){//Will take 2 sectors
+		Sector attack = new Sector();//Temporary, Will take sector as input
+		Sector defend = new Sector();
 		attack.setTroops(5);
 		defend.setTroops(2);
 		int attackTroops = 0;
@@ -56,7 +58,6 @@ public class Method {
 			int defendDie = (int) defendDice.get(defendTroops-i-1);
 			if(attackDie <= defendDie){
 				System.out.println("Defender "+ (i+1) + " was Sucessful");
-				moveTroops --;
 				attack.subTroop();
 			}
 			else{
@@ -74,6 +75,7 @@ public class Method {
 			defend.setPlayer(attack.getPlayer());
 			defend.setTroops(moveTroops);
 		}
+	
 	}
 	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append method to an Object[]
 
@@ -81,20 +83,4 @@ public class Method {
 		temp.add(newObj);
 		return temp.toArray();
 	}
-	
-	public void MoveTroops(Player player){
-		Object[] MoveFromOptions = {};
-		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
-
-		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
-	}
-	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
-	
-	
 }

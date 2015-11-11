@@ -82,19 +82,14 @@ public class Method {
 		return temp.toArray();
 	}
 	
-	public void MoveTroops(Player player){
-		Object[] MoveFromOptions = {};
-		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
-
-		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
+	public void MoveTroops(){
+		//	Object[] MoveFromOptions = {};
+		//	troopOptions = appendValue(MoveFromOptions, ""+ variable);
+		//	Object[] MoveToOptions = {};
+		//	troopOptions = appendValue(MoveToptions, ""+ variable);
 	}
 	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
+	
 	
 	
 }

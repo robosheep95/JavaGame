@@ -81,20 +81,4 @@ public class Method {
 		temp.add(newObj);
 		return temp.toArray();
 	}
-	
-	public void MoveTroops(Player player){
-		Object[] MoveFromOptions = {};
-		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
-
-		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
-	}
-	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
-	
-	
 }

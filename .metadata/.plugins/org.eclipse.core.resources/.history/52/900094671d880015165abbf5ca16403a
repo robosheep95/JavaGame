@@ -5,11 +5,11 @@ public class JavaGameMain {
 	public static void main(String[] args) {
 		//Start by setting up board with txt input using board init
 		//Prompt for number of players 2-5
-		////Sector attack = new Sector();
-		////attack.setTroops(5);
-		////Sector defend = new Sector();
-		////defend.setTroops(3);
-		////Method.Battle(attack, defend);
+		Sector attack = new Sector();
+		attack.setTroops(5);
+		Sector defend = new Sector();
+		defend.setTroops(3);
+		Method.Battle(attack, defend);
 		Object[] possabllities = {"2","3","4","5"};
 		boolean notStarted = true;
 		while(notStarted){

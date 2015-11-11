@@ -85,16 +85,14 @@ public class Method {
 	public void MoveTroops(Player player){
 		Object[] MoveFromOptions = {};
 		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
+		//for sector on the board
+		//if(player.equals(sector.getPlayer())){
+		//	MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
 
 		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
 	}
 	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
+	
 	
 	
 }
