@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class JavaGameMain {
@@ -12,13 +10,6 @@ public class JavaGameMain {
 		////Sector defend = new Sector();
 		////defend.setTroops(3);
 		////Method.Battle(attack, defend);
-		
-		ArrayList AvalableTerritories = new ArrayList();
-		AvalableTerritories = Board.getTerritories;
-		
-		
-		
-		
 		Object[] possabllities = {"2","3","4","5"};
 		boolean notStarted = true;
 		while(notStarted){
@@ -35,7 +26,9 @@ public class JavaGameMain {
 				PlayerSetUp(Integer.parseInt(playerCount));
 				notStarted = false;
 			}
+			
 		}
+		
 	}
 	private static void TwoPlayerSetUp(){
 		
@@ -43,37 +36,6 @@ public class JavaGameMain {
 	private static void PlayerSetUp(int iPlayerCount){
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static void QuitPrompt(){ // Will prompt for player to quit Y/N. 
 		int choice = JOptionPane.showConfirmDialog(
 			    null, "Would you like to quit?",

@@ -1,7 +1,28 @@
-2
-Name
-Contenent
-Connecting,in,a,comma,seperated,list
-AnotherName
-Europe
-Sector1,sector2,sector3
+9
+Termin Sector
+Himlar Galaxy
+Lafar Sector,Jaken Sector,Shepard Republic
+Lafar Sector
+Himlar Galaxy
+Termin Sector,Jaken Sector,Ontarian Sector,Republic of Centura
+Republic of Centura
+Himlar Galaxy
+Lafar Sector,Ontarian Sector,Morli Sector,Outpost Staven
+Jaken Sector
+Himlar Galaxy
+Termin Sector,Lafar Sector,Ontarian Sector,Confederation of Belancha
+Ontarian Sector
+Himlar Galaxy
+Jaken Sector,Republic of Centura,Confederation of Belancha,Confederation of Alafa,Morli Sector,Lafar Sector
+Morli Sector
+Himlar Galaxy
+Ontarian Sector,Republic of Centura,Confederation of Alafa,
+Confederation of Belancha
+Himlar Galaxy
+Jaken Sector,Ontarian Sector, Confederation of Alafa,Rose Sector
+Confederation of Alafa
+Himlar Galaxy
+Confederation of Belancha,Morli Sector,Rose Sector,Ontarian Sector
+Rose Sector
+Himlar Galaxy
+Confederation of Belancha,Confederation of Alafa,Jamar Sector
