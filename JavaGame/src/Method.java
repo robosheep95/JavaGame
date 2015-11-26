@@ -12,12 +12,10 @@ import javax.swing.JOptionPane;
 public class Method {
 	
 	public static void Battle(Sector attack, Sector defend){//Will take 2 sectors
-		attack.setTroops(5);
-		defend.setTroops(2);
 		int attackTroops = 0;
 		int defendTroops = 0;
 		Object[] troopOptions = {};
-		for(int i = 1; i <= attack.getTroops()-1;i++){
+		for(int i = 1; i <= attack.getTroops()-1 && i<=3 ;i++){
 			troopOptions = appendValue(troopOptions, ""+i);
 		}
 		Object[] possibilities = troopOptions;
@@ -31,15 +29,12 @@ public class Method {
 			Method.BattleExecute(attackTroops, defendTroops, attack, defend);
 		}
 	}
-	@SuppressWarnings("unchecked")
 	private static void BattleExecute(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
 		Random die = new Random();
-		ArrayList attackDice = new ArrayList<Object>();
-		ArrayList defendDice = new ArrayList<Object>();
+		System.out.println(attackTroops);
+		ArrayList<Integer> attackDice = new ArrayList<Integer>();
+		ArrayList<Integer> defendDice = new ArrayList<Integer>();
 		int moveTroops = attackTroops;
-		if (attackTroops >=3){
-			attackTroops = 3;
-		}
 		if (defendTroops >=2){
 			defendTroops = 2;
 		}
@@ -73,6 +68,22 @@ public class Method {
 			System.out.println("Attackers overwhelmed the opposition");
 			defend.setPlayer(attack.getPlayer());
 			defend.setTroops(moveTroops);
+			attack.subTroops(moveTroops);
+			if(attack.getTroops()>1){
+				Object[] troopOptions = {};
+				for(int i = 0; i <= attack.getTroops()-1;i++){
+					troopOptions = appendValue(troopOptions, ""+i);
+				}
+				Object[] possibilities = troopOptions;
+				String sMoveTroops = (String)JOptionPane.showInputDialog(null, "Select Number of Troops to Move", "Move", JOptionPane.PLAIN_MESSAGE, null, possibilities, "0");
+				if (sMoveTroops == null){
+					return;
+				}
+				else{
+					defend.addTroops(Integer.parseInt(sMoveTroops));
+					attack.subTroops(Integer.parseInt(sMoveTroops));
+				}
+			}
 		}
 	}
 	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append method to an Object[]
@@ -85,7 +96,7 @@ public class Method {
 	public void MoveTroops(Player player){
 		Object[] MoveFromOptions = {};
 		Object[] MoveToOptions = {};
-		ArrayList SectorsOccupied = new ArrayList();
+		ArrayList SectorsOccupied = new ArrayList<Sector>();
 		//for sector occupied
 		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
 

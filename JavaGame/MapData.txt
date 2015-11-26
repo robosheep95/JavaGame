@@ -1,0 +1,124 @@
+Termin Sector,Lafar Sector,Republic of Centura,Jaken Sector,Ontarian Sector,Morli Sector,Confederation of Alafa,Confederation of Belancha,Rose Sector,Jamar Sector,Thurd Sector,Danton Sector,Admenti Sector,New Eros Sector,Trefesera Sector,Outpost Rafiki,Velorum Sector,Vida Republic,Cimmeira Sector,Silicon Sector,Trum Empire,Outpost Staven,Austinonian Sector,Choza Prime Sector,Gyphson States,Confederation of Lament,Chen Sector,Lei Zhu Sector,Xanu Sector,Nau Xan Sector,Dutorian Sector,Sultar Republic,Out Whi Jen,Shepard Republic,Iradat Sector,Manwe Sector,Outpost Galli,Zanphos Sector,Shen Xiu Sector
+Termin Sector
+Himlar Galaxy
+Lafar Sector,Jaken Sector,Shepard Republic
+Lafar Sector
+Himlar Galaxy
+Termin Sector,Jaken Sector,Ontarian Sector,Republic of Centura
+Republic of Centura
+Himlar Galaxy
+Lafar Sector,Ontarian Sector,Morli Sector,Outpost Staven
+Jaken Sector
+Himlar Galaxy
+Termin Sector,Lafar Sector,Ontarian Sector,Confederation of Belancha
+Ontarian Sector
+Himlar Galaxy
+Jaken Sector,Republic of Centura,Confederation of Belancha,Confederation of Alafa,Morli Sector,Lafar Sector
+Morli Sector
+Himlar Galaxy
+Ontarian Sector,Republic of Centura,Confederation of Alafa,
+Confederation of Belancha
+Himlar Galaxy
+Jaken Sector,Ontarian Sector,Confederation of Alafa,Rose Sector
+Confederation of Alafa
+Himlar Galaxy
+Confederation of Belancha,Morli Sector,Rose Sector,Ontarian Sector
+Rose Sector
+Himlar Galaxy
+Confederation of Belancha,Confederation of Alafa,Jamar Sector
+Jamar Sector
+Harambee Galaxy
+Rose Sector,Thurd Sector,Danton Sector
+Thurd Sector
+Harambee Galaxy
+Danton Sector,Jamar Sector,Astraea Sector
+Danton Sector
+Harambee Galaxy
+Admenti Sector,Thurd Sector,Jamar Sector,Astraea Sector
+Admenti Sector
+Setlar Galaxy
+Danton Sector,Vida Republic,Velorum Sector,New Eros Sector,Cimmeira Sector,Silicon Sector
+New Eros Sector
+Setlar Galaxy
+Admenti Sector,Vida Republic,Velorum Sector
+Trefesera Sector
+Setlar Galaxy
+New Eros Sector,Velorum Sector,Outpost Rafiki
+Outpost Republic
+Setlar Galaxy
+Trefesera Sector,Velorum Sector
+Velorum Sector
+Setlar Galaxy
+Outpost Rafiki,New Eros Sector,Trefesera Sector,Vida Republic,Gyphson States
+Vida Republic
+Setlar Galaxy
+Admenti Sector,New Eros Sector,Velorum Sector,Gyphson States,Silicon Sector
+Cimmeira Sector
+Shelfen Galaxy
+Admenti Sector,Silicon Sector,Lafette Sector,Trum Empire
+Silicon Sector
+Shelfen Galaxy
+Cimmeira Sector,Gyphson States,Lafette Sector,Choza Prime Sector,Admenti Sector
+Trum Empire
+Shelfen Galaxy
+Cimmeira Sector,Lafette Sector,Outpost Staven,Austinonian Sector
+Outpost Staven
+Shelfen Galaxy
+Trum Empire,Republic of Centura,Austinonian Sector
+Austinonian Sector
+Shelfen Galaxy
+Trum Empire,Outpost Staven,Lafette Sector,Choza Prime Sector
+Choza Prime Sector
+Shelfen Galaxy
+Lafette Sector,Silicon Sector,Austinonian Sector,Gyphson States,Xanu Republic,Dutorian Sector
+Lafette Sector
+Shelfen Galaxy
+Silicon Sector,Admenti Sector,Trum Empire,Cimmeira Sector
+Gyphson States
+Mishkin Galaxy
+Vida Republic,Velorum Sector,Silicon Sector,Choza Prime Sector,Confederation of Lament
+Confederation of Lament
+Mishkin Galaxy
+Gyphson States,Xanu Republic,Lei Zhu Sector,Chen Sector
+Chen Sector
+Mishkin Galaxy
+Confederation of Lament,Lei Zhu Sector,Manwe Sector
+Lei Zhu Sector
+Mishkin Galaxy
+Confederation of Lament,Chen Sector,Xanu Republic,Nau Xan Sector,Sultar Republic
+Xanu Sector
+Mishkin Galaxy
+Choza Prime,Gyphson States,Confederation of Lament,Lei Zhu Sector,Dutorian Sector
+Nau Xan Sector
+Mishkin Galaxy
+Lei Zhu Sector,Sultar Sector,Outpost Whi Jen,Shen Xiu Sector,Shepard Sector
+Dutorian Sector
+Mishkin Galaxy
+Choza Prime Sector,Xanu Republic,Sultar Republic,Lei Zhu Sector
+Sultar Republic
+Mishkin Galaxy
+Dutorian Sector,Lei Zhu,Nau Xan Sector,Shen Xiu,Iradat Sector
+Shen Xiu Sector
+Mishkin Galaxy
+Sultar Republic,Nau Xan Sector,Iradat Sector,Shepard Republic
+Outpost Whi Jen
+Mishkin Galaxy
+Nau Xan Sector,Shepard Republic
+Iradat Sector
+Mishkin Sector
+Sultar Republic,Shepard Republic,Shen Xiu Sector
+Shepard Republic
+Mishkin Galaxy
+Iradat Sector,Outpost Whi Jen,Nau Xan Sector,Shen Xiu Sector,Termin Sector
+Manwe Sector
+Minlov Galaxy
+Chen Sector,Outpost Galli,Utalesh Sector
+Outpost Galli
+Minlov Galaxy
+Manwe Sector,Zanphos Sector
+Utalesh Sector
+Minlov Galaxy
+Manwe Sector,Zanphos Sector
+Zanphos Sector
+Minlov Galaxy
+Outpost Galli,Utalesh Sector

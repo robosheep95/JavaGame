@@ -1,0 +1,40 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Board{
+	static ArrayList<Sector> SectorList = new ArrayList<Sector>();
+	
+	public static void SetBoard(){
+		
+		File file = new File("MapData.txt");
+		//System.out.println(file.getAbsolutePath());
+		try{
+			Scanner MapData = new Scanner(file);
+			String[] FirstLine = MapData.nextLine().split(",");
+			for(int i = 0; i < FirstLine.length ;i++){
+				Sector temp = new Sector(FirstLine[i]);
+				SectorList.add(temp);
+				System.out.println(temp.getName());
+			while(MapData.hasNextLine()){
+				String input = MapData.nextLine();
+				for(int i = 0; i < SectorList.size() ;i++){
+			}
+			MapData.close();
+			}
+			
+			
+			
+			
+		}
+		catch(FileNotFoundException e){
+			System.out.println("File not Found");
+		}
+
+		//Use this space to initialize all sectors 
+		
+		
+		
+	}
+}

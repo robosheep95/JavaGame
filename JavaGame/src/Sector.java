@@ -1,12 +1,22 @@
+import java.util.ArrayList;
 
 public class Sector {
-	private String strName;
+	private static String strName;
 	private String strGalaxy;
 	private int intTroops;
 	private boolean boolNeutral;
 	private Player player;
-	//private ArrayList
-	
+	private ArrayList<Sector> Neighbors = new ArrayList<Sector>();
+	public Sector(){
+	setName("");
+	setGalaxy("");
+	setTroops(0);
+	setNeutral(true);
+	}
+	public Sector(String name) {
+		setName(name);
+	}
+
 	public void setName(String input){
 		strName = input;
 	}
@@ -49,6 +59,18 @@ public class Sector {
 	public Player getPlayer(){
 		return player;
 	}
+	public void addNeighbor(Sector input){
+		Neighbors.add(input);
+	}
+	public ArrayList<Sector> getNeighbors(){
+		return Neighbors;
+	}
+	
+	
+	
+	
+	
+	
 	public String toString(){
 		if (boolNeutral){
 			return "Name: " + strName + " Galaxy: " + strGalaxy
