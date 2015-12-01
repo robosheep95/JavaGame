@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Sector {
-	private String strName;
+	private static String strName;
 	private String strGalaxy;
 	private int intTroops;
 	private boolean boolNeutral;
@@ -81,5 +81,4 @@ public class Sector {
 				+ " Troops: " + intTroops;
 		}
 	}
-	
 }

@@ -12,7 +12,6 @@ public class JavaGameMain {
 		//Method.Battle(attack, defend);
 		
 		Board.setBoard();
-		Deck.setDeck();
 		
 		
 		Object[] possabillities = {"2","3","4","5"};

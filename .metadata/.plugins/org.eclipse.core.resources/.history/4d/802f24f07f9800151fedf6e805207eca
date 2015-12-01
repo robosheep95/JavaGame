@@ -19,7 +19,7 @@ public class Deck {
 				//System.out.println(Deck.get(i));
 				//System.out.println(Deck);
 			}
-				System.out.println(Deck);
+				//System.out.println(Deck);
 			MapData.close();
 			return true;
 		}

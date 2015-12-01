@@ -96,7 +96,7 @@ public class Method {
 	public void MoveTroops(Player player){
 		Object[] MoveFromOptions = {};
 		Object[] MoveToOptions = {};
-		ArrayList<Sector> SectorsOccupied = new ArrayList<Sector>();
+		ArrayList SectorsOccupied = new ArrayList<Sector>();
 		//for sector occupied
 		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
 

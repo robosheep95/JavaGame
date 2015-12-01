@@ -11,17 +11,19 @@ public class Board {
 		try {
 			Scanner MapData = new Scanner(file);
 			String[] FirstLine = (MapData.nextLine()).split(",");
-			for(int i = 0; i<FirstLine.length/2;i++){
-				Sector oObject = new Sector(FirstLine[i*2]);
+			for(int i = 0; i<FirstLine.length;i++){
+				Sector oObject = new Sector(FirstLine[i]);
 				SectorList.add(oObject);
-				
 				//SectorList.add(new Sector(FirstLine[i]));
-				//System.out.println(FirstLine[i]);
-				//System.out.println(SectorList.get(i));
-				//System.out.println(SectorList);
+				System.out.println(FirstLine[i]);
+				System.out.println(SectorList.get(i));
+				System.out.println(SectorList);
 			}
 				System.out.println(SectorList);
 			MapData.close();
+			for (int i = 0; i < SectorList.size(); i++){
+				System.out.println(SectorList.get(i).getName());
+			}
 			return true;
 		}
 		catch (FileNotFoundException e) {

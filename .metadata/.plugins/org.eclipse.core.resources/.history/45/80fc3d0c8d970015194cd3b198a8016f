@@ -11,14 +11,11 @@ public class Board {
 		try {
 			Scanner MapData = new Scanner(file);
 			String[] FirstLine = (MapData.nextLine()).split(",");
-			for(int i = 0; i<FirstLine.length/2;i++){
-				Sector oObject = new Sector(FirstLine[i*2]);
-				SectorList.add(oObject);
-				
-				//SectorList.add(new Sector(FirstLine[i]));
-				//System.out.println(FirstLine[i]);
-				//System.out.println(SectorList.get(i));
-				//System.out.println(SectorList);
+			for(int i = 0; i<FirstLine.length;i++){
+				SectorList.add(new Sector(FirstLine[i]));
+				System.out.println(FirstLine[i]);
+				System.out.println(SectorList.get(i));
+				System.out.println(SectorList);
 			}
 				System.out.println(SectorList);
 			MapData.close();
