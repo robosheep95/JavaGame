@@ -1,0 +1,110 @@
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class JavaGameMain {
+	public static ArrayList<Player> PlayerList = new ArrayList<Player>();
+	public static void main(String[] args) {
+		
+		//Start by setting up board with txt input using board init
+		//Prompt for number of players 2-5
+		//Sector attack = new Sector();
+		//attack.setTroops(5);
+		//Sector defend = new Sector();
+		//defend.setTroops(1);
+		//Method.Battle(attack, defend);
+		
+		Board.setBoard();
+		Deck.setDeck();
+		
+		
+		Object[] possabillities = {"2","3","4","5"};
+		int choice = OptionBox("Select Number of Players","Players",possabillities,"2");
+		if(choice == 2){
+			TwoPlayerSetUp();
+		}
+		else{;
+			PlayerSetUp(choice);
+		}
+	}
+	private static void TwoPlayerSetUp(){
+		ArrayList<Sector> SectorList = Board.SectorList;
+		PlayerList.add(new Player(DialogBox("Player 1: Enter Name", "Enter Name", "")));
+		PlayerList.add(new Player(DialogBox("Player 2: Enter Name", "Enter Name", "")));
+		for(int i = 0;i<38;i++){//CHECK THIS NUMBER
+			
+		}
+	}
+	private static void PlayerSetUp(int iPlayerCount){
+		
+	}
+	
+/*
+ *if(someone has won){
+ * output that they won. terminate game
+ * go to next persons turn
+ * Start Place phase
+ * Then start attack phase
+ * then move troops phase
+ * then draw cards if possible
+ * start next turn
+ */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private static String DialogBox(String text,String title,String defaultOption){
+		boolean notDone = true;
+		while(notDone){
+			String sInput = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultOption);
+			//System.out.println(playerCount);
+			if (sInput == null){
+				System.out.println("Incorrect Input");
+			}
+			else{
+				notDone = false;
+				return sInput;
+			}
+		}
+		return "";
+	}
+	
+	
+	private static int OptionBox(String text,String title,Object[] possabllities,String defaultOption){
+		boolean notDone = true;
+		while(notDone){
+			String sInteger = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, possabllities, defaultOption);
+			//System.out.println(playerCount);
+			if (sInteger == null){
+				System.out.println("Incorrect Input");
+			}
+			else{
+				notDone = false;
+				return Integer.parseInt(sInteger);
+				
+			}
+		}
+		return 0;
+	
+	}
+	
+	public static void QuitPrompt(){ // Will prompt for player to quit Y/N. 
+		int choice = JOptionPane.showConfirmDialog(null, "Would you like to quit?","Quit?",JOptionPane.YES_NO_OPTION);
+		if (choice == 0){
+			System.exit(0);
+		}
+		else if (choice == 1){
+			return;
+		}
+		else{
+			System.out.println("Error. Incorrect option chosen. Terminating :(");
+			System.exit(0);
+		}
+	}
+}

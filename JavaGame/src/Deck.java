@@ -28,5 +28,20 @@ public class Deck {
 		}
 		
 	}
+
+	public static void add(Card input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static Object[] toObject() {
+		// TODO Auto-generated method stub
+		return new Object[0];//TEMP REPLACE WITH ACCUAL METHOD!!!
+	}
+
+	public static void remove(Card input) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

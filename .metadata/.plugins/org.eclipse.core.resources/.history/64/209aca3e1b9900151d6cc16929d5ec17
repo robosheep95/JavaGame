@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+
+public class Player {
+	String strName = "";
+	Deck playerDeck = new Deck();
+	ArrayList<Sector> SectorList = new ArrayList<Sector>();
+	
+	public Player(){
+		
+	}
+	public Player(String input){
+		
+	}
+	public void setName(String input){
+		strName = input;
+	}
+
+}

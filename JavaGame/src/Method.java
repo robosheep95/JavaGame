@@ -1,5 +1,7 @@
 /*
- * Battle and Battle Execute method by Taylor Scafe. Ignore warnings. It works
+ * TwoPlayerSetUp and PlayerSetUp methods by Taylor Scafe
+ * Battle and Battle Execute method by Taylor Scafe.
+ * DialogBox and OptionBox and QuitPrompt methods by Taylor Scafe.
  */
 
 import java.util.ArrayList;
@@ -10,24 +12,40 @@ import javax.swing.JOptionPane;
 
 
 public class Method {
+	public static ArrayList<Player> PlayerList = new ArrayList<Player>();
+	public static Player CurrentPlayer;
+	public static int intCurrentPlayer;
+	
+	
+	
+/////////////////////////////////GAME SET UP METHODS///////////////////////////////////////////
+	
+	public static void TwoPlayerSetUp(){
+		ArrayList<Sector> SectorList = Board.SectorList;
+		PlayerList.add(new Player(DialogBox("Player 1: Enter Name", "Enter Name", "")));
+		PlayerList.add(new Player(DialogBox("Player 2: Enter Name", "Enter Name", "")));
+		CurrentPlayer = PlayerList.get(1);
+		for(int i = 0;i<23;i++){
+			
+		}
+	}
+	public static void PlayerSetUp(int iPlayerCount){
+		ArrayList<Sector> SectorList = Board.SectorList;
+		for(int i=0;i<iPlayerCount;i++){
+			PlayerList.add(new Player(DialogBox("Player "+(i+1)+": Enter Name", "Enter Name", "")));
+		}
+		CurrentPlayer = PlayerList.get(1);
+	}
+/////////////////////////////////PLACE TROOP METHODS///////////////////////////////////////////
+	
+/////////////////////////////////BATTLE METHODS///////////////////////////////////////////
 	
 	public static void Battle(Sector attack, Sector defend){//Will take 2 sectors
 		int attackTroops = 0;
 		int defendTroops = 0;
-		Object[] troopOptions = {};
-		for(int i = 1; i <= attack.getTroops()-1 && i<=3 ;i++){
-			troopOptions = appendValue(troopOptions, ""+i);
-		}
-		Object[] possibilities = troopOptions;
-		String sAttackTroops = (String)JOptionPane.showInputDialog(null, "Select Number of Troops to Deploy", "Attack", JOptionPane.PLAIN_MESSAGE, null, possibilities, "1");
-		if (sAttackTroops == null){
-			return;
-		}
-		else{
-			attackTroops = Integer.parseInt(sAttackTroops);
-			defendTroops = defend.getTroops();
-			Method.BattleExecute(attackTroops, defendTroops, attack, defend);
-		}
+		attackTroops = NumberRangeBox(1, attack.getTroops()-1, "Select Number of Troops to Deploy", "Attack");
+		defendTroops = defend.getTroops();
+		Method.BattleExecute(attackTroops, defendTroops, attack, defend);
 	}
 	private static void BattleExecute(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
 		Random die = new Random();
@@ -59,10 +77,6 @@ public class Method {
 				defend.subTroop();
 			}
 		}
-		//System.out.println(attackDice);
-		//System.out.println(defendDice);
-		//System.out.println(attack.getTroops());
-		//System.out.println(defend.getTroops());
 			
 		if(defend.getTroops() == 0){
 			System.out.println("Attackers overwhelmed the opposition");
@@ -86,26 +100,102 @@ public class Method {
 			}
 		}
 	}
+/////////////////////////////////MANEUVER METHODS///////////////////////////////////////////
+	
+/////////////////////////////////DRAW CARD METHODS///////////////////////////////////////////
+	
+/////////////////////////////////OBJECT METHODS///////////////////////////////////////////
+	
 	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append method to an Object[]
 
 		ArrayList<Object> temp = new ArrayList<Object>(Arrays.asList(obj));
 		temp.add(newObj);
 		return temp.toArray();
 	}
+	public static Object[] ConvertSectorListToObject(ArrayList<Sector> input){
+		Object[] output = new Object[0];
+		for(int i=0;i<input.size();i++){
+			Sector sectorInput = input.get(i);
+			appendValue(output,sectorInput.getName());
+		}
+		return output;
+	}
+/////////////////////////////////USER INTERFACE METHODS///////////////////////////////////////////
 	
-	public void MoveTroops(Player player){
-		Object[] MoveFromOptions = {};
-		Object[] MoveToOptions = {};
-		ArrayList<Sector> SectorsOccupied = new ArrayList<Sector>();
-		//for sector occupied
-		//MoveFromOptions = appendValue(MoveFromOptions, ""+ sector.getName());
-
-		//	MoveToOptions = appendValue(MoveToptions, ""+ variable);
+	public static String DialogBox(String text,String title,String defaultOption){
+		boolean notDone = true;
+		while(notDone){
+			String sInput = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultOption);
+			//System.out.println(playerCount);
+			if (sInput == null){
+				QuitPrompt();
+			}
+			else{
+				notDone = false;
+				return sInput;
+			}
+		}
+		return "";
 	}
 	
-	//public ArrayList[] getOccupiedSectors(Player player){
-	//	return 
-	//}
 	
+	public static String OptionBox(String text,String title,Object[] possabllities,String defaultOption){
+		boolean notDone = true;
+		while(notDone){
+			String output = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, possabllities, defaultOption);
+			//System.out.println(playerCount);
+			if (output == null){
+				QuitPrompt();
+			}
+			else{
+				notDone = false;
+				return (output);
+				
+			}
+		}
+		return "";
+	}
+	public static int NumberRangeBox(int start, int end, String text,String title){
+		Object[] possabilities = new Object[0];
+		boolean notDone = true;
+		String output = "";
+		for(int i = start; i <= end ;i++){
+			possabilities = appendValue(possabilities, ""+i);
+		}
+		while(notDone){
+			output = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, possabilities, ""+start);
+			if (output == null){
+				QuitPrompt();
+			}
+			else{
+				notDone = false;
+				
+			}
+		}
+		return Integer.parseInt(output);
+	}
+	public static void QuitPrompt(){ // Will prompt for player to quit Y/N. 
+		int choice = JOptionPane.showConfirmDialog(null, "Would you like to quit?","Quit?",JOptionPane.YES_NO_OPTION);
+		if (choice == 0){
+			System.exit(0);
+		}
+		else if (choice == 1){
+			return;
+		}
+		else{
+			System.out.println("Error. Incorrect option chosen. Terminating :(");
+			System.exit(0);
+		}
+	}
+	public static void nextPlayer(){
+		if (intCurrentPlayer == PlayerList.size()){
+			intCurrentPlayer = 0;
+			CurrentPlayer = PlayerList.get(intCurrentPlayer);
+		}
+		else{
+			intCurrentPlayer++;
+			CurrentPlayer = PlayerList.get(intCurrentPlayer);
+		}
+	}
 	
 }
