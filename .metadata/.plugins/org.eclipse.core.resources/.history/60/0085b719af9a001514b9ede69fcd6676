@@ -7,7 +7,6 @@ public class Sector {
 	private boolean boolNeutral;
 	private Player player;
 	private ArrayList<Sector> Neighbors = new ArrayList<Sector>();
-///////////////////////CONSTRUCTORS/////////////////////////////////
 	public Sector(){
 	setName("");
 	setGalaxy("");
@@ -17,7 +16,7 @@ public class Sector {
 	public Sector(String name) {
 		setName(name);
 	}
-///////////////////////MUTATORS/////////////////////////////////
+
 	public void setName(String input){
 		strName = input;
 	}
@@ -45,10 +44,6 @@ public class Sector {
 	public void setPlayer(Player input){
 		player = input;
 	}
-	public void addNeighbor(Sector input){
-		Neighbors.add(input);
-	}
-///////////////////////ACCESSORS/////////////////////////////////	
 	public String getName(){
 		return strName;
 	}
@@ -64,9 +59,18 @@ public class Sector {
 	public Player getPlayer(){
 		return player;
 	}
+	public void addNeighbor(Sector input){
+		Neighbors.add(input);
+	}
 	public ArrayList<Sector> getNeighbors(){
 		return Neighbors;
 	}
+	
+	
+	
+	
+	
+	
 	public String toString(){
 		if (boolNeutral){
 			return "Name: " + strName + " Galaxy: " + strGalaxy
@@ -77,4 +81,5 @@ public class Sector {
 				+ " Troops: " + intTroops;
 		}
 	}
-}//////////////////////END OF SECTOR.JAVA/////////////////////////////
+	
+}

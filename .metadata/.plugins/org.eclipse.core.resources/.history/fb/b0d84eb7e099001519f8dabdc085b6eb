@@ -44,7 +44,7 @@ public class Deck {
 		
 	}
 
-	public static Card draw() {//PLEASE CREATE THIS METHOD
+	public static Card draw() {
 		// TODO Auto-generated method stub
 		return null;
 	}

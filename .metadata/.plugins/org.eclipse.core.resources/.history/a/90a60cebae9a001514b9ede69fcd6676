@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
+
 public class Method {
 	public static ArrayList<Player> PlayerList = new ArrayList<Player>();
 	public static Player CurrentPlayer;
@@ -17,6 +18,7 @@ public class Method {
 	public static boolean gotSector = false;
 	public static boolean TwoPlayer = false;
 	public static Player winner;
+
 /////////////////////////////////GAME SET UP METHODS///////////////////////////////////////////	
 	public static void TwoPlayerSetUp(){
 		TwoPlayer = true;

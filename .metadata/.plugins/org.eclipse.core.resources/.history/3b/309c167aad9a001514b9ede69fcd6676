@@ -34,9 +34,6 @@ public class Player {
 			}
 		}
 	}
-	public ArrayList<Sector> getSectorList(){
-		return SectorList;
-	}
 	public Object[] getSectorObject(){
 		return new Object[0];
 	}

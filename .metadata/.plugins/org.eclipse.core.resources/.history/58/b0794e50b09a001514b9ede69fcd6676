@@ -19,8 +19,6 @@ public class JavaGameMain {
 		else{;
 			Method.PlayerSetUp(choice);
 		}
-		boolean notDone = true;
-		while notDone
 	}
 	
 	
