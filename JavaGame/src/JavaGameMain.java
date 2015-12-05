@@ -1,37 +1,30 @@
 public class JavaGameMain {
 	
 	public static void main(String[] args) {
-		
-		//Start by setting up board with txt input using board init
-		//Prompt for number of players 2-5
-		//Sector attack = new Sector();
-		//attack.setTroops(5);
-		//Sector defend = new Sector();
-		//defend.setTroops(1);
-		//Method.Battle(attack, defend);
-		
-		Board.setBoard();
-		Deck.setDeck();
-		int choice = Method.NumberRangeBox(2,5,"Select Number of Players","Players");
-		if(choice == 2){
-			Method.TwoPlayerSetUp();
-		}
-		else{;
-			Method.PlayerSetUp(choice);
-		}
+		Method Method = new Method();
+		//Method.YesNoPrompt("Test", "Test2");
+		Method.StartGame();
 		boolean notDone = true;
-		while notDone
+		while (notDone){
+			boolean attacking = true;
+			//Method.getTroops
+			while (attacking){
+				Method.Battle();
+				attacking = (Method.YesNoPrompt("Would you like to attack again?","Attack"));
+			}
+			if (Method.CheckWin()){
+				System.out.println(Method.winner+" has won!");
+				notDone = false;
+			}
+			else{
+				boolean moving = true;
+				while(moving){
+					//Method.Maneuver
+					moving = (Method.YesNoPrompt("Would you like to move troops again?","Moving"));
+				}
+				Method.DrawCard();
+				Method.nextPlayer();
+			}
+		}
 	}
-	
-	
-/*
- *if(someone has won){
- * output that they won. terminate game
- * go to next persons turn
- * Start Place phase
- * Then start attack phase
- * then move troops phase
- * then draw cards if possible
- * start next turn
- */
 }

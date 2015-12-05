@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class Player {
+	String strName = "";
+	Deck playerDeck = new Deck();
+	ArrayList<Sector> SectorList = new ArrayList<Sector>();
+	boolean neutral = false;
+	
+	public Player(){
+		
+	}
+	public Player(String input){
+		setName(input);
+	}
+	public Player(String inputName,boolean inputNeutral,Card InputCard1,Card InputCard2,Card InputCard3,Card InputCard4,Card InputCard5,Card InputCard6){
+		setName(inputName);
+		neutral = inputNeutral;
+		Deck.add(InputCard1);
+		Deck.add(InputCard2);
+		Deck.add(InputCard3);
+		Deck.add(InputCard4);
+		Deck.add(InputCard5);
+		Deck.add(InputCard6);
+	}
+	public void setName(String input){
+		strName = input;
+	}
+	public void addCard(Card input){
+		Deck.add(input);
+	}
+	public void removeCard(Card input){
+		Deck.remove(input);
+	}
+	public Object[] getPlayerDeckObject(){
+		return Deck.toObject();
+	}
+	public void addSector(Sector input){
+		SectorList.add(input);
+	}
+	public void removeSector(Sector input){
+		for(int i = 0; i == SectorList.size();i++){
+			Sector temp = SectorList.get(i);
+			if (temp.getName() == input.getName()){
+				SectorList.remove(i);
+			}
+		}
+	}
+	public ArrayList<Sector> getSectorList(){
+		return SectorList;
+	}
+	public Object[] getSectorObject(){
+		return new Object[0];
+	}
+}

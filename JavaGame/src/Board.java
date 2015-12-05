@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Board {
-	static ArrayList<Sector> SectorList = new ArrayList<Sector>();
+	ArrayList<Sector> SectorList = new ArrayList<Sector>();
 
-	public static boolean setBoard(){
+	public Board(){
 		File file = new File("MapData.txt");
 		try {
 			Scanner MapData = new Scanner(file);
@@ -14,18 +14,12 @@ public class Board {
 			for(int i = 0; i<FirstLine.length/2;i++){
 				Sector oObject = new Sector(FirstLine[i*2]);
 				SectorList.add(oObject);
-				
-				//SectorList.add(new Sector(FirstLine[i]));
-				//System.out.println(FirstLine[i]);
-				//System.out.println(SectorList.get(i));
-				//System.out.println(SectorList);
 			}
-				System.out.println(SectorList);
+			
 			MapData.close();
-			return true;
 		}
 		catch (FileNotFoundException e) {
-			return false;
+			System.err.println("FileNotFound!!!");
 		}
 		
 	}

@@ -11,41 +11,102 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Method {
-	public static ArrayList<Player> PlayerList = new ArrayList<Player>();
-	public static Player CurrentPlayer;
-	public static int intCurrentPlayer;
-	public static boolean gotSector = false;
-	public static boolean TwoPlayer = false;
-	public static Player winner;
+	private ArrayList<Player> PlayerList = new ArrayList<Player>();
+	private Deck CardDeck = new Deck();
+	private Board GameBoard = new Board();
+	private Player CurrentPlayer;
+	private int intCurrentPlayer;
+	private boolean gotSector = false;
+	private boolean TwoPlayer = false;
+	public Player winner = null;
 /////////////////////////////////GAME SET UP METHODS///////////////////////////////////////////	
-	public static void TwoPlayerSetUp(){
-		TwoPlayer = true;
-		ArrayList<Sector> SectorList = Board.SectorList;
-		PlayerList.add(new Player(DialogBox("Player 1: Enter Name", "Enter Name", "")));
-		PlayerList.add(new Player(DialogBox("Player 2: Enter Name", "Enter Name", "")));
-		CurrentPlayer = PlayerList.get(1);
-		for(int i = 0;i<23;i++){
-			
+	public void StartGame() {
+		CardDeck.setDeck();
+		int choice = NumberRangeBox(2,5,"Select Number of Players","Players");
+		if(choice == 2){
+			TwoPlayerSetUp();
+		}
+		else{;
+			PlayerSetUp(choice);
 		}
 	}
-	public static void PlayerSetUp(int iPlayerCount){
-		ArrayList<Sector> SectorList = Board.SectorList;
+	public void TwoPlayerSetUp(){
+		TwoPlayer = true;
+		ArrayList<Sector> SectorList = GameBoard.SectorList;
+		PlayerList.add(new Player(DialogBox("Player 1: Enter Name", "Enter Name", "")));
+		PlayerList.add(new Player(DialogBox("Player 2: Enter Name", "Enter Name", "")));
+		CurrentPlayer = PlayerList.get(0);
+		for(int i = 0;i<24;i++){
+			System.out.println(SectorList.size());
+			String choice = OptionBox(CurrentPlayer.getPlayerName() +", Please Choose a Sector", "Sector Select", SectorList.toArray(), SectorList.get(0).getName());
+			for(int j = 0; j< SectorList.size();j++){
+				Sector checkSector = SectorList.get(j);
+				if(checkSector.getName()==choice){
+					CurrentPlayer.addSector(SectorList.get(j));
+					SectorList.remove(j);
+				}
+			}
+			nextPlayer();
+		}
+		PlayerList.add(new Player("Neutral",true,CardDeck.draw(),CardDeck.draw(),CardDeck.draw(),CardDeck.draw(),CardDeck.draw(),CardDeck.draw()));
+		while(!(SectorList.isEmpty())){
+			SectorList.get(0).setTroops(2);
+			PlayerList.get(2).addSector(SectorList.get(0));
+			SectorList.remove(0);
+		}
+	}
+	public void PlayerSetUp(int iPlayerCount){
+		ArrayList<Sector> SectorList = GameBoard.SectorList;
 		for(int i=0;i<iPlayerCount;i++){
 			PlayerList.add(new Player(DialogBox("Player "+(i+1)+": Enter Name", "Enter Name", "")));
 		}
-		CurrentPlayer = PlayerList.get(1);
+		CurrentPlayer = PlayerList.get(0);
+		while(!(SectorList.isEmpty())){
+			String choice = OptionBox("Please Choose a Sector", "Sector Select", SectorList.toArray(), SectorList.get(0).getName());
+			for(int j = 0; j< SectorList.size();j++){
+				Sector checkSector = SectorList.get(j);
+				if(checkSector.getName()==choice){
+					CurrentPlayer.addSector(SectorList.get(j));
+					SectorList.remove(j);
+				}
+			}
+			nextPlayer();
+		}
 	}
 /////////////////////////////////PLACE TROOP METHODS///////////////////////////////////////////
 	
 /////////////////////////////////BATTLE METHODS///////////////////////////////////////////	
-	public static void Battle(Sector attack, Sector defend){//Will take 2 sectors
-		int attackTroops = 0;
-		int defendTroops = 0;
-		attackTroops = NumberRangeBox(1, attack.getTroops()-1, "Select Number of Troops to Deploy", "Attack");
-		defendTroops = defend.getTroops();
-		Method.BattleExecute(attackTroops, defendTroops, attack, defend);
+	public void Battle(){
+		Sector attack = ChooseSector(CurrentPlayer.getPlayerName()+". Choose a sector to attack from", "Attack", CurrentPlayer.getSectorList());
+		ArrayList<Sector> attackable = CreateAttackable(attack);
+		if(attackable.isEmpty()){
+			System.out.println("No enemy sectors to attack from "+attack.getName());
+		}
+		else{
+			Sector defend = ChooseSector(CurrentPlayer.getPlayerName()+". Choose a sector to attack", "Attack",attackable);
+			int attackTroops = 0;
+			int defendTroops = 0;
+			attackTroops = NumberRangeBox(1, attack.getTroops()-1, "Select Number of Troops to Deploy", "Attack");
+			defendTroops = defend.getTroops();
+			BattleExecute(attackTroops, defendTroops, attack, defend);
+		}
 	}
-	private static void BattleExecute(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
+	private ArrayList<Sector> CreateAttackable(Sector attack){
+		ArrayList<Sector> Attackable = new ArrayList<Sector>();
+		for (int i = 0;i<attack.getNeighbors().size();i++){
+			boolean friendly = false;
+			for (int j = 0;j<CurrentPlayer.getSectorList().size();j++){
+				if (CurrentPlayer.getSectorList().get(j).getName()==attack.getNeighbors().get(i).getName());{
+					friendly = true;
+				}
+			}
+			if (!(friendly)){
+			Attackable.add(attack.getNeighbors().get(i));
+			}
+		}
+		return Attackable;
+	}
+	private void BattleExecute(int attackTroops, int defendTroops, Sector attack, Sector defend){//Will take 2 sectors as input
 		Random die = new Random();
 		System.out.println(attackTroops);
 		ArrayList<Integer> attackDice = new ArrayList<Integer>();
@@ -91,14 +152,16 @@ public class Method {
 /////////////////////////////////MANEUVER METHODS///////////////////////////////////////////
 	
 /////////////////////////////////DRAW CARD METHODS///////////////////////////////////////////
-	public static void DrawCard(){
+	public void DrawCard(){
 		if (gotSector){
-			CurrentPlayer.addCard(Deck.draw());
-			gotSector = false;
+			if(!(CardDeck.isEmpty())){
+				CurrentPlayer.addCard(CardDeck.draw());
+				gotSector = false;
+			}
 		}
 	}
 /////////////////////////////////CHECK WIN METHOD//////////////////////////////////////////
-	public static boolean CheckWin(){
+	public boolean CheckWin(){
 		if(TwoPlayer){
 			Player player1 = PlayerList.get(0);
 			Player player2 = PlayerList.get(1);
@@ -119,7 +182,7 @@ public class Method {
 		else{
 			for(int i = 0;i<PlayerList.size();i++){
 				Player checkPlayer = PlayerList.get(i);
-				if(checkPlayer.getSectorList().size() == Board.SectorList.size()){
+				if(checkPlayer.getSectorList().size() == GameBoard.SectorList.size()){
 					winner = checkPlayer;
 					return true;
 				}
@@ -128,8 +191,8 @@ public class Method {
 		}
 	}
 /////////////////////////////////NEXT PLAYER METHOD////////////////////////////////////////
-	public static void nextPlayer(){
-		if (intCurrentPlayer == PlayerList.size()){
+	public void nextPlayer(){
+		if (intCurrentPlayer == PlayerList.size()-1 || PlayerList.get(intCurrentPlayer+1).isNeutral()){
 			intCurrentPlayer = 0;
 			CurrentPlayer = PlayerList.get(intCurrentPlayer);
 		}
@@ -139,22 +202,25 @@ public class Method {
 		}
 	}
 /////////////////////////////////OBJECT METHODS///////////////////////////////////////////
-	private static Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append method to an Object[]
+	private Object[] appendValue(Object[] obj, Object newObj) {//Taken from the Internet. Give append method to an Object[]
 
 		ArrayList<Object> temp = new ArrayList<Object>(Arrays.asList(obj));
 		temp.add(newObj);
 		return temp.toArray();
 	}
-	public static Object[] ConvertSectorListToObject(ArrayList<Sector> input){
-		Object[] output = new Object[0];
-		for(int i=0;i<input.size();i++){
-			Sector sectorInput = input.get(i);
-			appendValue(output,sectorInput.getName());
+/////////////////////////////////USER INTERFACE METHODS///////////////////////////////////////////
+	public Sector ChooseSector(String text,String title,ArrayList<Sector> SectorList){
+		String choice = OptionBox(text, title, SectorList.toArray(), SectorList.get(0).getName());
+		for(int j = 0; j< SectorList.size();j++){
+			Sector checkSector = SectorList.get(j);
+			if(checkSector.getName()==choice){
+				return checkSector;
+			}
 		}
-		return output;
+		return null;
 	}
-/////////////////////////////////USER INTERFACE METHODS///////////////////////////////////////////	
-	public static String DialogBox(String text,String title,String defaultOption){
+	
+	public String DialogBox(String text,String title,String defaultOption){
 		boolean notDone = true;
 		while(notDone){
 			String sInput = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, null, defaultOption);
@@ -169,23 +235,22 @@ public class Method {
 		}
 		return "";
 	}
-	public static String OptionBox(String text,String title,Object[] possabllities,String defaultOption){
+	public String OptionBox(String text,String title,Object[] possabllities,String defaultOption){
 		boolean notDone = true;
 		while(notDone){
-			String output = (String)JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, possabllities, defaultOption);
+			Object output = JOptionPane.showInputDialog(null, text, title, JOptionPane.PLAIN_MESSAGE, null, possabllities, defaultOption);
 			//System.out.println(playerCount);
 			if (output == null){
 				QuitPrompt();
 			}
 			else{
 				notDone = false;
-				return (output);
-				
+				return (output.toString());
 			}
 		}
 		return "";
 	}
-	public static int NumberRangeBox(int start, int end, String text,String title){
+	public int NumberRangeBox(int start, int end, String text,String title){
 		Object[] possabilities = new Object[0];
 		boolean notDone = true;
 		String output = "";
@@ -203,7 +268,17 @@ public class Method {
 		}
 		return Integer.parseInt(output);
 	}
-	public static void QuitPrompt(){ // Will prompt for player to quit Y/N. 
+	public boolean YesNoPrompt(String text,String title){
+		int n = JOptionPane.showConfirmDialog(null,text,title,JOptionPane.YES_NO_OPTION);
+		System.out.println(n);
+		if(n == 0){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public void QuitPrompt(){ // Will prompt for player to quit Y/N. 
 		int choice = JOptionPane.showConfirmDialog(null, "Would you like to quit?","Quit?",JOptionPane.YES_NO_OPTION);
 		if (choice == 0){
 			System.exit(0);
