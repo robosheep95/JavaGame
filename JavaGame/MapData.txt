@@ -1,4 +1,4 @@
-Termin Sector,1,Lafar Sector,1,Republic of Centura,1,Jaken Sector,1,Ontarian Sector,2,Morli Sector,1,Confederation of Alafa,1,Confederation of Belancha,1,Rose Sector,1,Jamar Sector,1,Thurd Sector,1,Danton Sector,1,Admenti Sector,1,New Eros Sector,2,Trefesera Sector,1,Outpost Rafiki,1,Velorum Sector,1,Vida Republic,1,Lafette Sector,2,Cimmeira Sector,2,Silicon Sector,1,Trum Empire,1,Outpost Staven,1,Austinonian Sector,1,Choza Prime Sector,2,Gyphson States,1,Confederation of Lament,1,Chen Sector,1,Lei Zhu Sector,1,Xanu Sector,2,Nau Xan Sector,2,Dutorian Sector,2,Sultar Republic,2,Outpost Whi Jen,1,Shepard Republic,1,Iradat Sector,2,Shen Xiu Sector,2,Manwe Sector,1,Outpost Galli,1,Zanphos Sector,1,Utalesh Sector,1
+Termin Sector,1,Lafar Sector,1,Republic of Centura,1,Jaken Sector,1,Ontarian Sector,2,Morli Sector,1,Confederation of Alafa,1,Confederation of Belancha,1,Rose Sector,1,Jamar Sector,1,Thurd Sector,1,Danton Sector,1,Admenti Sector,1,New Eros Sector,2,Trefesera Sector,1,Outpost Rafiki,1,Velorum Sector,1,Vida Republic,1,Trum Empire,1,Cimmeira Sector,2,Silicon Sector,1,Outpost Staven,1,Austinonian Sector,1,Choza Prime Sector,2,Lafette Sector,2,Gyphson States,1,Confederation of Lament,1,Chen Sector,1,Lei Zhu Sector,1,Xanu Sector,2,Nau Xan Sector,2,Dutorian Sector,2,Sultar Republic,2,Shen Xiu Sector,2,Outpost Whi Jen,1,Iradat Sector,2,Shepard Republic,1,Manwe Sector,1,Outpost Galli,1,Utalesh Sector,1,Zanphos Sector,1,
 Termin Sector
 Himlar Galaxy
 Lafar Sector,Jaken Sector,Shepard Republic
@@ -17,12 +17,12 @@ Jaken Sector,Republic of Centura,Confederation of Belancha,Confederation of Alaf
 Morli Sector
 Himlar Galaxy
 Ontarian Sector,Republic of Centura,Confederation of Alafa,
-Confederation of Belancha
-Himlar Galaxy
-Jaken Sector,Ontarian Sector,Confederation of Alafa,Rose Sector
 Confederation of Alafa
 Himlar Galaxy
 Confederation of Belancha,Morli Sector,Rose Sector,Ontarian Sector
+Confederation of Belancha
+Himlar Galaxy
+Jaken Sector,Ontarian Sector,Confederation of Alafa,Rose Sector
 Rose Sector
 Himlar Galaxy
 Confederation of Belancha,Confederation of Alafa,Jamar Sector
@@ -44,7 +44,7 @@ Admenti Sector,Vida Republic,Velorum Sector
 Trefesera Sector
 Setlar Galaxy
 New Eros Sector,Velorum Sector,Outpost Rafiki
-Outpost Republic
+Outpost Rafiki
 Setlar Galaxy
 Trefesera Sector,Velorum Sector
 Velorum Sector
@@ -52,14 +52,14 @@ Setlar Galaxy
 Outpost Rafiki,New Eros Sector,Trefesera Sector,Vida Republic,Gyphson States
 Vida Republic
 Setlar Galaxy
+Cimmeira Sector,Gyphson States,Lafette Sector,Choza Prime Sector,Admenti Sector
+Trum Empire
+Shelfen Galaxy
 Admenti Sector,New Eros Sector,Velorum Sector,Gyphson States,Silicon Sector
 Cimmeira Sector
 Shelfen Galaxy
 Admenti Sector,Silicon Sector,Lafette Sector,Trum Empire
 Silicon Sector
-Shelfen Galaxy
-Cimmeira Sector,Gyphson States,Lafette Sector,Choza Prime Sector,Admenti Sector
-Trum Empire
 Shelfen Galaxy
 Cimmeira Sector,Lafette Sector,Outpost Staven,Austinonian Sector
 Outpost Staven

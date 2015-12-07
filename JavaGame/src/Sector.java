@@ -14,6 +14,7 @@ public class Sector {
 	}
 	public Sector(String name) {
 		setName(name);
+		setTroops(1);
 	}
 ///////////////////////MUTATORS/////////////////////////////////
 	public void setName(String input){

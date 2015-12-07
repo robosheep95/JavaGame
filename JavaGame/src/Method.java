@@ -37,7 +37,6 @@ public class Method {
 		PlayerList.add(new Player(DialogBox("Player 2: Enter Name", "Enter Name", "")));
 		CurrentPlayer = PlayerList.get(0);
 		for(int i = 0;i<24;i++){
-			System.out.println(SectorList.size());
 			String choice = OptionBox(CurrentPlayer.getPlayerName() +", Please Choose a Sector", "Sector Select", SectorList.toArray(), SectorList.get(0).getName());
 			for(int j = 0; j< SectorList.size();j++){
 				Sector checkSector = SectorList.get(j);
@@ -62,7 +61,7 @@ public class Method {
 		}
 		CurrentPlayer = PlayerList.get(0);
 		while(!(SectorList.isEmpty())){
-			String choice = OptionBox("Please Choose a Sector", "Sector Select", SectorList.toArray(), SectorList.get(0).getName());
+			String choice = OptionBox(CurrentPlayer.getPlayerName() +", Please Choose a Sector", "Sector Select", SectorList.toArray(), SectorList.get(0).getName());
 			for(int j = 0; j< SectorList.size();j++){
 				Sector checkSector = SectorList.get(j);
 				if(checkSector.getName()==choice){
@@ -77,6 +76,16 @@ public class Method {
 	
 /////////////////////////////////BATTLE METHODS///////////////////////////////////////////	
 	public void Battle(){
+		ArrayList<Sector> CanAttackFrom = new ArrayList<Sector>();
+		for (int i = 0;i<CurrentPlayer.getSectorList().size();i++){
+			if (CurrentPlayer.getSectorList().get(i).getTroops()>1){
+				CanAttackFrom.add(CurrentPlayer.getSectorList().get(i));
+			}
+		}
+		if(CanAttackFrom.isEmpty()){
+			System.out.println("No sectors to attack from");
+			return;
+		}
 		Sector attack = ChooseSector(CurrentPlayer.getPlayerName()+". Choose a sector to attack from", "Attack", CurrentPlayer.getSectorList());
 		ArrayList<Sector> attackable = CreateAttackable(attack);
 		if(attackable.isEmpty()){
@@ -93,15 +102,18 @@ public class Method {
 	}
 	private ArrayList<Sector> CreateAttackable(Sector attack){
 		ArrayList<Sector> Attackable = new ArrayList<Sector>();
-		for (int i = 0;i<attack.getNeighbors().size();i++){
-			boolean friendly = false;
-			for (int j = 0;j<CurrentPlayer.getSectorList().size();j++){
-				if (CurrentPlayer.getSectorList().get(j).getName()==attack.getNeighbors().get(i).getName());{
-					friendly = true;
+		Attackable.addAll(attack.getNeighbors());
+		System.out.println(Attackable);
+		for (int i = 0;i<Attackable.size();i++){
+			ArrayList<Sector> Owned = CurrentPlayer.getSectorList();
+			for (int j = 0;j<Owned.size();j++){
+				Sector Check1 = Attackable.get(i);
+				Sector Check2 = Owned.get(j);
+				if(Check1.getName()==Check2.getName()){
+					Attackable.remove(i);
+					i--;
+					break;
 				}
-			}
-			if (!(friendly)){
-			Attackable.add(attack.getNeighbors().get(i));
 			}
 		}
 		return Attackable;
@@ -270,7 +282,7 @@ public class Method {
 	}
 	public boolean YesNoPrompt(String text,String title){
 		int n = JOptionPane.showConfirmDialog(null,text,title,JOptionPane.YES_NO_OPTION);
-		System.out.println(n);
+		//System.out.println(n);
 		if(n == 0){
 			return true;
 		}
