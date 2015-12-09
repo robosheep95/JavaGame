@@ -127,17 +127,18 @@ public class Method {
 		if (defendTroops >=2){
 			defendTroops = 2;
 		}
-		for(int i=0; i!=attackTroops;i++){
+		for(int i=0; i<attackTroops;i++){
 			attackDice.add((die.nextInt(5)+1));
+			System.out.println("AttackDie "+attackDice.get(i));
 		}
 		Collections.sort(attackDice);
-		for(int i=0; i!=defendTroops;i++){
+		for(int i=0; i<defendTroops;i++){
 			defendDice.add(die.nextInt(5)+1);
 		}
 		Collections.sort(defendDice);
-		for(int i=0;i!=defendTroops;i++){
-			int attackDie = (int) attackDice.get(attackTroops-i-1);
-			int defendDie = (int) defendDice.get(defendTroops-i-1);
+		for(int i=0;i<defendTroops && i<attackTroops;i++){
+			int attackDie = attackDice.get(attackTroops-i-1);
+			int defendDie = defendDice.get(defendTroops-i-1);
 			if(attackDie <= defendDie){
 				System.out.println("Defender "+ (i+1) + " was Sucessful");
 				moveTroops --;
@@ -303,4 +304,12 @@ public class Method {
 			System.exit(0);
 		}
 	}
-}////////////////////////////////END OF METHOD.JAVA///////////////////////////////////////////////
+////////////////////////////////END OF METHOD.JAVA///////////////////////////////////////////////
+	public void Present(){
+		System.out.println(CurrentPlayer.getPlayerName());
+		System.out.println(CurrentPlayer.getSectorList());
+		ArrayList<Sector> temp = CurrentPlayer.getSectorList();
+		System.out.println(temp.get(0));
+		System.out.println(temp.get(0).getTroops());
+	}
+}

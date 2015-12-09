@@ -18,14 +18,13 @@ public class JavaGameMain {
 			}
 			else{
 				boolean moving = true;
-				//while(moving){
+				while(moving){
 					//Method.Maneuver
-					//moving = (Method.YesNoPrompt("Would you like to move troops again?","Moving"));
+					moving = (Method.YesNoPrompt("Would you like to move troops again?","Moving"));
 				}
 				Method.DrawCard();
 				Method.nextPlayer();
-				Method.Present();
-			//}
+			}
 		}
 	}
 }
