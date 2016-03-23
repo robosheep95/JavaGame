@@ -1,3 +1,5 @@
+THIS CODE IS NOT FINISHED AND HAS NO CURRENT PLANS OF BEING COMPLETED
+
 Classes to Create - The Game of Risk
 
 Sector Object
